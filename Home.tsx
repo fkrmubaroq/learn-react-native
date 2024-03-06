@@ -6,6 +6,7 @@ import {RootStackParamList} from './types';
 const lessonMenus: (keyof RootStackParamList)[] = [
   'Flexbox',
   'Relative & Absolute',
+  'Image',
 ];
 
 export default function Home({

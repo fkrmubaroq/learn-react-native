@@ -3,10 +3,11 @@ import {
   NativeStackScreenProps,
   createNativeStackNavigator,
 } from '@react-navigation/native-stack';
+import Flexbox from 'components/Lesson/Flexbox';
+import Image from 'components/Lesson/Image';
+import RelativeAbsolute from 'components/Lesson/RelativeAbsolute';
 import React from 'react';
 import Home from './Home';
-import Flexbox from './Lesson/Flexbox';
-import RelativeAbsolute from './Lesson/RelativeAbsolute';
 import {RootStackParamList} from './types';
 
 const lessonMenus: {
@@ -24,6 +25,10 @@ const lessonMenus: {
   {
     title: 'Relative & Absolute',
     component: RelativeAbsolute,
+  },
+  {
+    title: 'Image',
+    component: Image,
   },
 ];
 
