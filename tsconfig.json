@@ -2,16 +2,15 @@
   "extends": "@react-native/typescript-config/tsconfig.json",
   "compilerOptions": {
     "strict": true,
-    // Path alias config
-    "baseUrl": ".",
     "paths": {
       "components/*": ["./src/components/*"],
+      "types/*": ["./src/types/*"],
       "assets/*": ["./src/assets/*"],
-      "src/*":["./src/*"]
-    },
+      "src/*": ["./src/*"],
+    }
   },
   "include":[
     "./src/*.tsx",
-    "./declration.d.ts"
-  ]
+    "./src/*.ts",
+ ]
 }

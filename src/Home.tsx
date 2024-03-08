@@ -1,12 +1,13 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React from 'react';
 import {Button, ScrollView, StyleSheet, Text, View} from 'react-native';
-import {RootStackParamList} from './types';
+import {RootStackParamList} from './types/types';
 
 const lessonMenus: (keyof RootStackParamList)[] = [
   'Flexbox',
   'Relative & Absolute',
   'Image',
+  'Todo List',
 ];
 
 export default function Home({

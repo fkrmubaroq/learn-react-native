@@ -2,13 +2,14 @@ module.exports = {
   presets: ['module:@react-native/babel-preset'],
   plugins: [
     [
-      "module-resolver",
+      'module-resolver',
       {
         alias: {
           // This needs to be mirrored in tsconfig.json
-          components: "./src/components",
-          assets: "./src/assets",
-          src: "./src",
+          components: './src/components',
+          assets: './src/assets',
+          types: './src/types',
+          src: './src',
         },
       },
     ],
