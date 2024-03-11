@@ -1,6 +1,12 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React from 'react';
-import {Button, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {RootStackParamList} from './types/types';
 
 const lessonMenus: (keyof RootStackParamList)[] = [
@@ -8,6 +14,7 @@ const lessonMenus: (keyof RootStackParamList)[] = [
   'Relative & Absolute',
   'Image',
   'Todo List',
+  'Form',
 ];
 
 export default function Home({
@@ -20,11 +27,12 @@ export default function Home({
           React Native Lessons
         </Text>
         {lessonMenus.map((menu, key) => (
-          <Button
-            title={menu}
+          <TouchableOpacity
+            style={styles.menu}
             key={key}
-            onPress={() => navigation.navigate(menu)}
-          />
+            onPress={() => navigation.navigate(menu)}>
+            <Text style={styles.menuText}>{menu}</Text>
+          </TouchableOpacity>
         ))}
       </View>
     </ScrollView>
@@ -37,12 +45,13 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   menu: {
-    backgroundColor: '#655',
+    backgroundColor: '#3a86ff',
     paddingHorizontal: 10,
     paddingVertical: 10,
     borderRadius: 7,
   },
   menuText: {
+    textAlign: 'center',
     color: 'white',
   },
 });

@@ -38,18 +38,20 @@ export default function TodoList() {
   };
 
   return (
-    <View style={{flex: 1, backgroundColor: '#e9ecef'}}>
-      <FlatList
-        keyExtractor={item => item.id.toString()}
-        data={todos}
-        renderItem={({item}) => (
-          <TodoItem data={item} onDeleteItem={onDeleteItem} />
-        )}
-        contentContainerStyle={styles.containerTodoList}
-        style={{marginBottom: 60}}
-      />
-      <TodoInput onPressAdd={onPressAdd} />
-    </View>
+    <>
+      <View style={{flex: 1, backgroundColor: '#e9ecef'}}>
+        <FlatList
+          keyExtractor={item => item.id.toString()}
+          data={todos}
+          renderItem={({item}) => (
+            <TodoItem data={item} onDeleteItem={onDeleteItem} />
+          )}
+          contentContainerStyle={styles.containerTodoList}
+          style={{marginBottom: 60}}
+        />
+        <TodoInput onPressAdd={onPressAdd} />
+      </View>
+    </>
   );
 }
 
@@ -58,6 +60,8 @@ function TodoInput({onPressAdd}: {onPressAdd: (text: string) => void}) {
   return (
     <View style={styles.containerTodoInput}>
       <TextInput
+        autoFocus
+        autoCapitalize="words"
         defaultValue={text}
         onChangeText={value => setText(value)}
         style={styles.todoInput}
