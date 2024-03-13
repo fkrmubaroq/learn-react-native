@@ -6,6 +6,7 @@ export type RootStackParamList = {
   'Todo List': undefined;
   Form: undefined;
   Modal: undefined;
+  'Refresh Control': undefined;
 };
 
 export type DataTodoType = {

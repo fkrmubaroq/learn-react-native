@@ -16,6 +16,7 @@ const lessonMenus: (keyof RootStackParamList)[] = [
   'Todo List',
   'Form',
   'Modal',
+  'Refresh Control',
 ];
 
 export default function Home({

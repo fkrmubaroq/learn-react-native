@@ -11,6 +11,7 @@ import RelativeAbsolute from 'components/Lesson/RelativeAbsolute';
 import TodoList from 'components/Lesson/TodoList';
 import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import RefreshControl from 'src/components/Lesson/RefreshControl';
 import Home from './Home';
 import {RootStackParamList} from './types/types';
 
@@ -45,6 +46,10 @@ const lessonMenus: {
   {
     title: 'Modal',
     component: Modal,
+  },
+  {
+    title: 'Refresh Control',
+    component: RefreshControl,
   },
 ];
 

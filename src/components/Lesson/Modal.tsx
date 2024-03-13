@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Switch,
   Text,
+  TouchableHighlight,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -107,6 +108,7 @@ function ModalForm({
               activeIndex={activeIndex}
               setActiveIndex={setActiveIndex}
               isEnabled={isEnabled}
+              onHide={() => setModalVisible(false)}
             />
           </View>
         </View>
@@ -187,7 +189,9 @@ const contributionSettingStyle = StyleSheet.create({
     borderWidth: 1.2,
     borderRadius: 10,
     minHeight: 50,
-    padding: 15,
+    paddingTop: 15,
+    paddingHorizontal: 15,
+    paddingBottom: 10,
     rowGap: 5,
   },
   cardTitleText: {
@@ -198,6 +202,28 @@ const contributionSettingStyle = StyleSheet.create({
     fontSize: 10,
     color: '#999',
     letterSpacing: 0.3,
+  },
+  buttonCancel: {
+    borderColor: '#ccc',
+    borderWidth: 1,
+    paddingHorizontal: 25,
+    paddingVertical: 9,
+    borderRadius: 20,
+  },
+  buttonCancelText: {
+    color: '#555',
+    fontSize: 12,
+  },
+  buttonApply: {
+    paddingHorizontal: 25,
+    paddingVertical: 9,
+    borderRadius: 20,
+    backgroundColor: 'blue',
+  },
+  buttonApplyText: {
+    color: 'white',
+    fontWeight: '700',
+    fontSize: 12,
   },
 });
 
@@ -215,10 +241,12 @@ function ContributionSetting({
   activeIndex,
   setActiveIndex,
   isEnabled,
+  onHide,
 }: {
   setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
   activeIndex: number;
   isEnabled: boolean;
+  onHide: () => void;
 }) {
   return (
     <View style={contributionSettingStyle.container}>
@@ -248,6 +276,25 @@ function ContributionSetting({
             </Text>
           </Pressable>
         ))}
+      </View>
+
+      <View
+        style={{
+          marginTop: 20,
+          justifyContent: 'flex-end',
+          flexDirection: 'row',
+          columnGap: 10,
+        }}>
+        <TouchableHighlight
+          style={contributionSettingStyle.buttonCancel}
+          onPress={() => onHide()}>
+          <Text style={contributionSettingStyle.buttonCancelText}>Cancel</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          style={contributionSettingStyle.buttonApply}
+          onPress={() => onHide()}>
+          <Text style={contributionSettingStyle.buttonApplyText}>Apply</Text>
+        </TouchableHighlight>
       </View>
     </View>
   );
