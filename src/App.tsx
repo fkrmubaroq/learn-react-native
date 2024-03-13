@@ -6,6 +6,7 @@ import {
 import Flexbox from 'components/Lesson/Flexbox';
 import Form from 'components/Lesson/Form';
 import Image from 'components/Lesson/Image';
+import Modal from 'components/Lesson/Modal';
 import RelativeAbsolute from 'components/Lesson/RelativeAbsolute';
 import TodoList from 'components/Lesson/TodoList';
 import React from 'react';
@@ -40,6 +41,10 @@ const lessonMenus: {
   {
     title: 'Form',
     component: Form,
+  },
+  {
+    title: 'Modal',
+    component: Modal,
   },
 ];
 

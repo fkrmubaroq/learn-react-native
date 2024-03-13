@@ -155,6 +155,7 @@ function BasicForm() {
             onClear={() => setForm(state => ({...state, country: initCountry}))}
           />
         </View>
+
         <Button text="Submit" />
       </CardContent>
     </Card>
