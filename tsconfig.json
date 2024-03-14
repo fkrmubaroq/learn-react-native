@@ -16,7 +16,8 @@
       "src/*": [
         "./src/*"
       ],
-    }
+    },
+    "moduleSuffixes": [".ios", ".android", ".native", ""],
   },
   "include": [
     "./src/**/*.tsx",

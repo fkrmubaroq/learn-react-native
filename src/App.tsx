@@ -8,6 +8,7 @@ import Form from 'components/Lesson/Form';
 import Image from 'components/Lesson/Image';
 import Modal from 'components/Lesson/Modal';
 import RelativeAbsolute from 'components/Lesson/RelativeAbsolute';
+import SpecificPlatform from 'components/Lesson/SpecificPlatform';
 import TodoList from 'components/Lesson/TodoList';
 import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -50,6 +51,10 @@ const lessonMenus: {
   {
     title: 'Refresh Control',
     component: RefreshControl,
+  },
+  {
+    title: 'Specific Platform',
+    component: SpecificPlatform,
   },
 ];
 

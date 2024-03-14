@@ -7,6 +7,7 @@ export type RootStackParamList = {
   Form: undefined;
   Modal: undefined;
   'Refresh Control': undefined;
+  'Specific Platform': undefined;
 };
 
 export type DataTodoType = {

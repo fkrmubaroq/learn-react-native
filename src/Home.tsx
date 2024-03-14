@@ -17,6 +17,7 @@ const lessonMenus: (keyof RootStackParamList)[] = [
   'Form',
   'Modal',
   'Refresh Control',
+  'Specific Platform',
 ];
 
 export default function Home({

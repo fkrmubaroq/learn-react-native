@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {
-  FlatList,
+  Platform,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -49,9 +50,9 @@ const initForm = initFormSchema.parse({
 type FormType = z.infer<typeof initFormSchema>;
 export default function Form() {
   return (
-    <View>
+    <ScrollView>
       <BasicForm />
-    </View>
+    </ScrollView>
   );
 }
 
@@ -62,7 +63,7 @@ function BasicForm() {
   };
 
   return (
-    <Card title="Form Input" style={{rowGap: 20}}>
+    <Card title="Form Input" style={styles.wrapper}>
       <CardContent style={{rowGap: 15}}>
         <View>
           <Label>Username</Label>
@@ -353,9 +354,9 @@ function Button({text, ...props}: TouchableOpacityProps & {text: string}) {
   );
 }
 
-function Card({title, children}: ViewProps & {title: string}) {
+function Card({title, children, style}: ViewProps & {title: string}) {
   return (
-    <View style={styles.containerCard}>
+    <View style={[styles.containerCard, style]}>
       <Text style={styles.title}>{title}</Text>
 
       {children}
@@ -368,6 +369,13 @@ function CardContent({children, style}: ViewProps) {
 }
 
 const styles = StyleSheet.create({
+  wrapper: {
+    ...Platform.select({
+      android: {
+        marginBottom: 200,
+      },
+    }),
+  },
   containerCard: {
     backgroundColor: 'white',
     borderRadius: 5,
@@ -390,6 +398,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   input: {
+    ...Platform.select({
+      android: {
+        height: 33,
+      },
+    }),
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 5,
@@ -534,17 +547,17 @@ function DropdownItem({
       {!filter.length ? (
         <EmptyData />
       ) : (
-        <FlatList
-          data={filter}
-          renderItem={({item}) => (
+        <ScrollView>
+          {filter.map((item, key) => (
             <TouchableHighlight
+              key={key}
               underlayColor={'#ccc'}
               style={dropdownItemStyle.item}
               onPress={() => onSelect(item)}>
               <Text style={dropdownItemStyle.itemText}>{item.text}</Text>
             </TouchableHighlight>
-          )}
-        />
+          ))}
+        </ScrollView>
       )}
     </View>
   );

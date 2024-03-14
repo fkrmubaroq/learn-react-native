@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {
   Alert,
   Modal,
+  Platform,
   Pressable,
   StyleSheet,
   Switch,
@@ -116,14 +117,17 @@ function ModalForm({
     </Modal>
   );
 }
-
 const contributionToggleStyle = StyleSheet.create({
   container: {
     justifyContent: 'space-between',
     flexDirection: 'row',
   },
   switch: {
-    transform: [{scale: 0.8}],
+    ...Platform.select({
+      ios: {
+        transform: [{scale: 0.8}],
+      },
+    }),
   },
   sideLeft: {
     rowGap: 3,
